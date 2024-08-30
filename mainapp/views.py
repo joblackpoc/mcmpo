@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from . models import Book
+from django.shortcuts import render, redirect, get_object_or_404
+from . models import Book, Post, Comment
 from . forms import BookForm
 
 # Create your views here.
@@ -39,3 +39,29 @@ def delete_book(request, pk):
         return redirect('book_list')
     return render(request, 'mainapp/confirm_delete.html', {'book': book})
             
+
+from .forms import CommentForm
+
+def post_list(request):
+    posts = Post.objects.all().order_by('-created_at')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    comments = post.comments.all()
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = CommentForm()
+
+    return render(request, 'blog/post_detail.html', {
+        'post': post,
+        'comments': comments,
+        'form': form
+    })
