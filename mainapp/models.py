@@ -1,5 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
 # Create your models here.
 class Book(models.Model):
     title = models.CharField(max_length=150)
@@ -11,7 +11,7 @@ class Book(models.Model):
     
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    content = RichTextField()
+    content = CKEditor5Field('Content', config_name='default')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

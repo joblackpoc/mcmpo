@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
-    'ckeditor',
+    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -112,6 +112,46 @@ USE_I18N = True
 
 USE_TZ = True
 
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 'auto',
+        'image': {
+            'styles': ['alignLeft', 'alignCenter', 'alignRight'],
+            'resizeOptions': [
+                {
+                    'name': 'resizeImage:original',
+                    'label': 'Original size',
+                    'value': None
+                },
+                {
+                    'name': 'resizeImage:50',
+                    'label': '50%',
+                    'value': '50'
+                },
+                {
+                    'name': 'resizeImage:75',
+                    'label': '75%',
+                    'value': '75'
+                }
+            ],
+            'toolbar': [
+                'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
+                '|',
+                'resizeImage',
+                '|',
+                'imageTextAlternative'
+            ]
+        },
+        'simpleUpload': {
+            'uploadUrl': '/uploads/',  # Change this to your upload URL
+            'headers': {
+                'X-CSRF-TOKEN': '{{ csrf_token }}',  # Add CSRF token if needed
+            }
+        },
+    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -119,6 +159,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR /'static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
