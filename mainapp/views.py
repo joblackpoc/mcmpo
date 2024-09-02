@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, DeleteView
+from django.views.generic import ListView, DetailView
 from . models import Post
 # Create your views here.
 class HomeView(ListView):
@@ -9,3 +9,12 @@ class HomeView(ListView):
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'article_details.html'
+
+class IndexView(ListView):
+    model = Post
+    template_name = 'index.html'
+    
+class IndexDetailView(DetailView):
+    model = Post
+    template_name = 'detail.html'
+    
