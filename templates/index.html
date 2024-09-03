@@ -11,7 +11,7 @@
     <div class="container">
         <h1>Hello, world!</h1>
         <ul>
-            {% for post in object_list %}
+            {% for post in posts %}
             <li><a href=" {% url 'detail' post.pk %}">{{post.title}}</a></li>
             <li>{{post.author}}</li>
             <li>{{post.body}}</li>
