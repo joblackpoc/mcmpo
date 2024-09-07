@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <title>Galaxy | All About The Artemis Lunar Mission</title>
+    <title>Muang Chumphon</title>
   </head>
   <body class="p-4 bg-gray-200">
     <!-- Navbar -->
@@ -15,7 +15,7 @@
           <div class="flex items-center">
             <div class="flex-shrink-0">
               <a class="text-2xl font-bold text-white" href="{% url 'home' %}"
-                >Galaxy</a
+                >Muang Chumphon</a
               >
             </div>
             <div class="hidden md:block">
@@ -284,6 +284,13 @@
             <p class="text-left mt-5 text-gray-700">
               {{ post.body|linebreaks }}
             </p>
+            <p><img
+                class="w-800 h-600"
+                src="{{post.image_url|default_if_none:'media/blog_images/default_blog_image.jpg'}}"
+                alt=""
+                srcset=""
+              />
+          </p>
           </div>
         </div>
         <hr class="border w-full my-2 border-gray-200" />
