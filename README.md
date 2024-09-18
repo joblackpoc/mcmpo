@@ -1,1 +1,0 @@
-# Muang Chumphon Django
