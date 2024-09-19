@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'user',
     'django_ckeditor_5',
     'ckeditor_uploader',
-    'crispy_forms',
-    'crispy_bootstrap5',
+    'blog',
+ 
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
