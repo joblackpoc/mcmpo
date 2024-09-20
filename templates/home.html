@@ -3,18 +3,17 @@
 
 {% block content %}
 
-
+    <div class="container">
         <!-- Header Start-->
         <div class="header">
             <div id="header-slider" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
+                <!-- Indicators 
                 <ul class="carousel-indicators">
                     <li data-target="#header-slider" data-slide-to="0" class="active"></li>
                     <li data-target="#header-slider" data-slide-to="1"></li>
                     <li data-target="#header-slider" data-slide-to="2"></li>
                 </ul>
-
-
+                -->
     
                 <div class="carousel-inner">
                   
@@ -29,7 +28,7 @@
                                     <a class="btn" href="">Read More</a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-100">
                                 <div class="carousel-img">
                                     <img src="{{item.header_image.url}}" alt="Image">
                                 </div>
@@ -48,5 +47,5 @@
             </div>
         </div>
         <!-- Header End-->
-        
+    </div>
 {% endblock content %}
