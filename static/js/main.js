@@ -1,10 +1,20 @@
 (function ($) {
     "use strict";
     
+    // Sticky Navbar
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('#nav').addClass('nav-sticky');
+        } else {
+            $('#nav').removeClass('nav-sticky');
+        }
+    });
+    
+    
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
-            if ($(window).width() > 992) {
+            if ($(window).width() > 768) {
                 $('.navbar .dropdown').on('mouseover', function () {
                     $('.dropdown-toggle', this).trigger('click');
                 }).on('mouseout', function () {
@@ -33,120 +43,37 @@
     });
 
 
-    // Tranding carousel
-    $(".tranding-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 2000,
-        items: 1,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left"></i>',
-            '<i class="fa fa-angle-right"></i>'
-        ]
-    });
+    // Skills section
+    $('.skills').waypoint(function () {
+        $('.progress .progress-bar').each(function () {
+            $(this).css("width", $(this).attr("aria-valuenow") + '%');
+        });
+    }, {offset: '80%'});
+    
 
-
-    // Carousel item 1
-    $(".carousel-item-1").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        items: 1,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ]
-    });
-
-    // Carousel item 2
-    $(".carousel-item-2").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 30,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            }
-        }
-    });
-
-
-    // Carousel item 3
-    $(".carousel-item-3").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 30,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
+    // jQuery counterUp
+    $('[data-toggle="counter-up"]').counterUp({
+        delay: 10,
+        time: 1000
     });
     
 
-    // Carousel item 4
-    $(".carousel-item-4").owlCarousel({
+    // Clients carousel
+    $(".clients-carousel").owlCarousel({
         autoplay: true,
-        smartSpeed: 1000,
-        margin: 30,
-        dots: false,
+        dots: true,
         loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            },
-            1200:{
-                items:4
-            }
-        }
+        responsive: { 0: {items: 2}, 768: {items: 4}, 900: {items: 6} }
     });
     
+
+    // Testimonials carousel
+    $(".testimonials-carousel").owlCarousel({
+        autoplay: true,
+        dots: true,
+        loop: true,
+        responsive: { 0: {items: 1}, 576: {items: 2}, 768: {items: 3}, 992: {items: 4} }
+    });
+  
 })(jQuery);
 

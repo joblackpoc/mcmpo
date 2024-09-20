@@ -1,1 +1,0 @@
-# NEWS Project with Django
