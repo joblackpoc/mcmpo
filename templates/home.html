@@ -2,81 +2,51 @@
 {% load static %} 
 
 {% block content %}
-    <!-- Header Start-->
-    <div class="header">
-        <div id="header-slider" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ul class="carousel-indicators">
-                <li data-target="#header-slider" data-slide-to="0" class="active"></li>
-                <li data-target="#header-slider" data-slide-to="1"></li>
-                <li data-target="#header-slider" data-slide-to="2"></li>
-            </ul>
 
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="carousel-content">
-                                <h2>หน้าที่ 1</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                                <a class="btn" href="">Read More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="carousel-img">
-                                <img src="{% static 'img/slider-1.png' %}" alt="Image">
-                            </div>
-                        </div>
-                    </div>   
-                </div>
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="carousel-content">
-                                <h2>หน้าที่ 2</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                                <a class="btn" href="">Read More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="carousel-img">
-                                <img src="{% static 'img/slider-2.png' %}" alt="Image">
-                            </div>
-                        </div>
-                    </div>   
-                </div>
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="carousel-content">
-                                <h2>หน้าที่ 3</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                                <a class="btn" href="">Read More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="carousel-img">
-                                <img src="{% static 'img/slider-3.png' %}" alt="Images">
-                            </div>
-                        </div>
-                    </div>   
-                </div>
-            </div>
 
-            <a class="carousel-control-prev" href="#header-slider" data-slide="prev">
-                <i class="ion-ios-arrow-back"></i>
-            </a>
-            <a class="carousel-control-next" href="#header-slider" data-slide="next">
-                <i class="ion-ios-arrow-forward"></i>
-            </a>
-        </div>
-    </div>
-    <!-- Header End-->
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-12">
-                <h1>Home Page Hello World !!!</h1>
+        <!-- Header Start-->
+        <div class="header">
+            <div id="header-slider" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#header-slider" data-slide-to="0" class="active"></li>
+                    <li data-target="#header-slider" data-slide-to="1"></li>
+                    <li data-target="#header-slider" data-slide-to="2"></li>
+                </ul>
+
+
+    
+                <div class="carousel-inner">
+                  
+                    {% for item in header  %}
+                    <div class="carousel-item {% if forloop.first %} active {% endif %}">
+
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="carousel-content">
+                                    <h2>{{item.header_title}}</h2>
+                                    <p>{{item.header_description}}</p>
+                                    <a class="btn" href="">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="carousel-img">
+                                    <img src="{{item.header_image.url}}" alt="Image">
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <a class="carousel-control-prev" href="#header-slider" data-slide="prev">
+                    <i class="ion-ios-arrow-back"></i>
+                </a>
+                <a class="carousel-control-next" href="#header-slider" data-slide="next">
+                    <i class="ion-ios-arrow-forward"></i>
+                </a>
             </div>
         </div>
-    </div>
+        <!-- Header End-->
+        
 {% endblock content %}
