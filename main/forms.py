@@ -5,7 +5,7 @@ from .models import About
 
 
 class AboutForm(forms.ModelForm):
-      """Form for comments to the article."""
+      """Form for function about_add to create about page."""
 
       def __init__(self, *args, **kwargs):
           super().__init__(*args, **kwargs)
