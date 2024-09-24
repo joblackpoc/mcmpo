@@ -1,18 +1,22 @@
 {% load static %}
        <!-- About Start-->
         <div class="about mt-100">
+            
+            {% for item in about  %}
+                
+                           
             <div class="container">
                 <div class="section-header">
-                    <h2>About Us</h2>
+                    <h2>{{item.about_title}}</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac lacus eget nunc imperdiet
+                        {{item.about_intro}}
                     </p>
                 </div>
                 
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="about-img">
-                            <img src="{% static 'img/about.jpg' %}" alt="" class="img-fluid">
+                            <img src="{{item.about_image_content.url}}" alt="" class="img-fluid">
                         </div>
                         <div class="about-content">
                             <h2>Welcome to Our Site</h2>
@@ -51,5 +55,6 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
         <!-- About End -->
